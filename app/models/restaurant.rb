@@ -13,7 +13,7 @@ class Restaurant < ActiveRecord::Base
     end
 
     def self.random
-        self.sample
+        self.all.sample
     end
 
 end
