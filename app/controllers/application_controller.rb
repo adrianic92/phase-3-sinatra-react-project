@@ -43,6 +43,7 @@ class ApplicationController < Sinatra::Base
     )
   end
 
+  #Updates Food
   patch '/foods/:id' do
     food = Food.find(params[:id])
     food = update(
@@ -51,6 +52,7 @@ class ApplicationController < Sinatra::Base
     )
   end
 
+  #Deletes Food
   delete '/foods/:id' do
     food = Food.find(params[:id])
     food.destroy
