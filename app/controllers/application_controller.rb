@@ -7,6 +7,11 @@ class ApplicationController < Sinatra::Base
     restaurants.to_json
   end
 
+  get '/restaurants/best' do
+    restaurant = {message: Restaurant.ten_out_of_ten}
+    restaurant.to_json
+  end
+
   post '/restaurants' do
     restaurant = Restaurant.create(
       name: params[:name],
