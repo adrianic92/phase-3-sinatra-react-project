@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     restaurant.to_json
   end
 
+  #Gets random restaurant
   get '/restaurants/random' do
     random = Restaurant.random
     random.to_json
@@ -54,6 +55,7 @@ class ApplicationController < Sinatra::Base
     food.to_json
   end
 
+  #Gets random food
   get '/foods/random' do
     random = Food.random
     random.to_json
