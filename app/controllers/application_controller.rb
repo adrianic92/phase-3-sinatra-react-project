@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     restaurants.to_json
   end
 
+  #Get the best Restaurant, if any, that has a rating of 10
   get '/restaurants/best' do
     restaurant = {message: Restaurant.ten_out_of_ten}
     restaurant.to_json
