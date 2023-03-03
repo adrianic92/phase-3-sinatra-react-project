@@ -139,4 +139,4 @@ fetch("http://localhost:9292/test")
 
 
 ## Extra
-This is the Backend of the Phase 3 Project
+This is the Backend of the Phase 3 Project. The backend consists of two models: Food and Restaurant. Food belongs to Restaurant. Restaurant has many foods.
