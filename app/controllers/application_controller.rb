@@ -52,4 +52,9 @@ class ApplicationController < Sinatra::Base
     food.destroy
     food.to_json
   end
+
+  get '/foods/random' do
+    random = Food.random
+    random.to_json
+  end
 end
