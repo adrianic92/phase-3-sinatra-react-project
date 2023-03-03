@@ -29,6 +29,13 @@ class ApplicationController < Sinatra::Base
     )
   end
 
+  #Deletes Restaurant
+  delete '/restaurants/:id' do
+    food = Food.find(params[:id])
+    food.destroy
+    food.to_json
+  end
+
   get '/foods' do
     foods = Food.all
     foods.to_json
