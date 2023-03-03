@@ -19,6 +19,7 @@ class ApplicationController < Sinatra::Base
     random.to_json
   end
 
+  #Create a restaurant
   post '/restaurants' do
     restaurant = Restaurant.create(
       name: params[:name],
@@ -33,6 +34,7 @@ class ApplicationController < Sinatra::Base
     foods.to_json
   end
 
+  #Create a food
   post '/foods' do
     food = Food.create(
       food_name: params[:food_name],
