@@ -10,7 +10,7 @@ puts "🌱 Done seeding restaurants 🍳🍴🍽"
 
 puts "🌱 Cooking Food 🍔🍕🍖🍝"
 
-50.times do
+100.times do
     Food.create(food_name: "#{Faker::Food.unique.dish}", dessert_pairing: "#{Faker::Dessert.flavor} #{Faker::Dessert.variety} with #{Faker::Dessert.topping}", restaurant_id: rand(1..10))
 end
 
