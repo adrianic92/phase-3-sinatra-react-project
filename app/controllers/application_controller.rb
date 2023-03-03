@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     restaurant.to_json
   end
 
+  get '/restaurants/random' do
+    random = Restaurant.random
+    random.to_json
+  end
+
   post '/restaurants' do
     restaurant = Restaurant.create(
       name: params[:name],
