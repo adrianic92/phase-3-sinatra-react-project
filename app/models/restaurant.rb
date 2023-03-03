@@ -12,4 +12,8 @@ class Restaurant < ActiveRecord::Base
         michellin ? michellin : "There are no perfect restaurants out there..."
     end
 
+    def self.random
+        self.sample
+    end
+
 end
