@@ -36,6 +36,12 @@ class ApplicationController < Sinatra::Base
     restaurant.to_json
   end
 
+  #Gets Foods by Restaurant
+  get 'restaurant/:id/foods' do
+    foods = Restaurant.find(params[:id]).foods
+    foods.to_json
+  end
+
   get '/foods' do
     foods = Food.all
     foods.to_json
