@@ -19,6 +19,17 @@ class ApplicationController < Sinatra::Base
     random.to_json
   end
 
+  #Updates Restaurant
+  patch '/restaurants/:id' do
+    restaurant = Restaurant.find(params[:id])
+    restaurant = update(
+      name: params[:name],
+      description: params[:description],
+      rating: params[:rating],
+      location: params[:location]
+      )
+  end
+
   #Create a restaurant
   post '/restaurants' do
     restaurant = Restaurant.create(
@@ -37,7 +48,7 @@ class ApplicationController < Sinatra::Base
   end
 
   #Gets Foods by Restaurant
-  get 'restaurant/:id/foods' do
+  get '/restaurants/:id/foods' do
     foods = Restaurant.find(params[:id]).foods
     foods.to_json
   end
