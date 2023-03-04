@@ -22,12 +22,13 @@ class ApplicationController < Sinatra::Base
   #Updates Restaurant
   patch '/restaurants/:id' do
     restaurant = Restaurant.find(params[:id])
-    restaurant = update(
+    restaurant.update(
       name: params[:name],
       description: params[:description],
       rating: params[:rating],
       location: params[:location]
       )
+    restaurant.to_json
   end
 
   #Create a restaurant
