@@ -1,3 +1,42 @@
+# Restaurants Project
+
+Welcome to my Restaurants Project! 
+
+This is the Backend of the Phase 3 Project. The backend consists of two models: Food and Restaurant. Each Food belongs to one Restaurant. One Restaurant can have many foods.
+
+In this backend users in the front end may make requests to the server to CREATE, READ, UPDATE, and DELETE certain parts of the database. 
+
+### Create
+We can create new Foods through POST requests.
+
+### Read
+We can read all the restaurants in the database through GET requests.
+We can also read all of the foods for each restaurant through GET requests.
+
+### Update
+We can update the information from our restaurants to change the name, description, rating, and location.
+
+### Delete
+We can delete restaurants from our database. The database starts with a total of 10 restaurants.
+
+## Installation Instructions
+- Fork and Clone this repository
+- Run 'bundle install' on your terminal to install dependencies
+- Run 'bundle exec rake server' on your terminal to begin the server 'http://localhost:9292"
+- Fork and Clone the front end repository --> Follow this link "https://github.com/adrianic92/my_app_frontend" to get to the repository
+
+## Credits
+- Faker gem. Learn more at "https://github.com/faker-ruby/faker"
+
+
+
+
+
+
+
+
+
+
 # Phase 3 Project Guidelines
 
 ## Learning Goals
@@ -138,5 +177,3 @@ fetch("http://localhost:9292/test")
 [network tab]: https://developer.chrome.com/docs/devtools/network/
 
 
-## Extra
-This is the Backend of the Phase 3 Project. The backend consists of two models: Food and Restaurant. Food belongs to Restaurant. Restaurant has many foods.
