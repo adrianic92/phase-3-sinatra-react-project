@@ -39,6 +39,7 @@ class ApplicationController < Sinatra::Base
       rating: params[:rating],
       location: params[:location]
     )
+    restaurant.to_json
   end
 
   #Deletes Restaurant
