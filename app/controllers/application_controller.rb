@@ -4,19 +4,26 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get '/restaurants' do
     restaurants = Restaurant.all
-    restaurants.to_json
+    restaurants.to_json(:include => :foods)
+    #konata.to_json(:include => :posts)
   end
 
+    #Gets Restaurant by ID
+  get '/restaurants/:id' do
+    restaurant = Restaurant.find(params[:id])
+    restaurant.to_json(:include => :foods)
+   end
+
   #Get the best Restaurant, if any, that has a rating of 10
-  get '/restaurants/best' do
+  get '/bestrestaurants' do
     restaurant = {message: Restaurant.ten_out_of_ten}
-    restaurant.to_json
+    restaurant.to_json(:include => :foods)
   end
 
   #Gets random restaurant
   get '/restaurants/random' do
     random = Restaurant.random
-    random.to_json
+    random.to_json(:include => :foods)
   end
 
   #Updates Restaurant
@@ -28,7 +35,7 @@ class ApplicationController < Sinatra::Base
       rating: params[:rating],
       location: params[:location]
       )
-    restaurant.to_json
+    restaurant.to_json(:include => :foods)
   end
 
   #Create a restaurant
@@ -39,14 +46,14 @@ class ApplicationController < Sinatra::Base
       rating: params[:rating],
       location: params[:location]
     )
-    restaurant.to_json
+    restaurant.to_json(:include => :foods)
   end
 
   #Deletes Restaurant
   delete '/restaurants/:id' do
     restaurant = Restaurant.find(params[:id])
     restaurant.destroy
-    restaurant.to_json
+    restaurant.to_json(:include => :foods)
   end
 
   #Gets Foods by Restaurant
@@ -54,6 +61,8 @@ class ApplicationController < Sinatra::Base
     foods = Restaurant.find(params[:id]).foods
     foods.to_json
   end
+
+  
 
   get '/foods' do
     foods = Food.all
@@ -67,6 +76,7 @@ class ApplicationController < Sinatra::Base
       dessert_pairing: params[:dessert_pairing],
       restaurant_id: params[:restaurant_id]
     )
+    food.to_json
   end
 
   #Updates Food
@@ -76,6 +86,7 @@ class ApplicationController < Sinatra::Base
       food_name: params[:food_name],
       dessert_pairing: params[:dessert_pairing]
     )
+    food.to_json
   end
 
   #Deletes Food
